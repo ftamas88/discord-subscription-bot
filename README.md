@@ -1,5 +1,7 @@
 # Discord Subscription Bot
 
+[![Latest Release](https://github.com/ftamas88/discord-subscription-bot/actions/workflows/release.yml/badge.svg)](https://github.com/ftamas88/discord-subscription-bot/actions/workflows/release.yml)
+
 ## Table of Contents
 - [About](#about)
 - [Quickstart](#quickstart)
