@@ -1,5 +1,6 @@
 # Discord Subscription Bot
 
+[![Go](https://github.com/ftamas88/discord-subscription-bot/actions/workflows/go.yml/badge.svg)](https://github.com/ftamas88/discord-subscription-bot/actions/workflows/go.yml)
 [![Latest Release](https://github.com/ftamas88/discord-subscription-bot/actions/workflows/release.yml/badge.svg)](https://github.com/ftamas88/discord-subscription-bot/actions/workflows/release.yml)
 
 ## Table of Contents
