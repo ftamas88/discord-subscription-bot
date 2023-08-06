@@ -78,7 +78,7 @@ jobs:
         run: |
           go build -v -o "$BINARY_NAME" cmd/bot/bot.go
       - name: BuildWindows
-        if: ${{ $GOARCH == 'amd64' && $GOOS="windows" }}
+        if: ${{ GOARCH == 'amd64' && GOOS="windows" }}
         run: go build -v -o "$BINARY_NAME".exe cmd/bot/bot.go
       - name: Release Notes
         run:
