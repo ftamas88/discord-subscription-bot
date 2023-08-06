@@ -1,0 +1,56 @@
+# https://github.com/go-task/task
+version: "3"
+
+tasks:
+  default:
+    desc: Default (run)
+    deps:
+      - task: run
+  build:
+    desc: Build app
+    cmds:
+      - go build .
+  run:
+    desc: Run app
+    cmds:
+      - cmd: go run cmd/bot/bot.go -onetime
+        ignore_error: true
+  test:
+    desc: Test
+    cmds:
+      - go test -race -coverprofile /test/cover $(go list ./... | grep -v /examples/ | grep -v /cmd)
+  vet:
+    desc: go vet and staticcheck
+    cmds:
+      - go vet ./...
+      - staticcheck ./...
+  lint:
+    desc: use revive as linter
+    cmds:
+      - revive -config ./configs/revive.toml -formatter stylish ./...
+  analyze:
+    desc: use nilaway
+    cmds:
+      - nilaway ./...
+    ignore_error: true
+  fmt:
+    desc: go fmt gofumpt goimports clean
+    cmds:
+      # - go fmt ./...
+      - gofmt -w -s .
+      - gofumpt -l -w -extra .
+      - goimports -w .
+      - go clean ./...
+  clean:
+    desc: Clean
+    cmds:
+      - go clean
+  install-requirements:
+    desc: install required libraries
+    cmds:
+      - go install honnef.co/go/tools/cmd/staticcheck@latest
+      - go install github.com/go-task/task/v3/cmd/task@latest
+      - go install golang.org/x/tools/cmd/goimports@latest
+      - go install github.com/mgechev/revive@latest
+      - go install mvdan.cc/gofumpt@latest
+      # - go install github.com/vektra/mockery/.../

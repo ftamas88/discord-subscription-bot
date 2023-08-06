@@ -1,0 +1,5 @@
+.env
+bin/
+data/database.db
+data/*.db
+test/cover
